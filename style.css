@@ -1,0 +1,345 @@
+/* ==========================================================================
+   نظام حجز المستشفى | MediCare Hospital Booking System — التنسيق الرئيسي
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap');
+
+/* ---------- 1. الثيمات (Color Themes) ---------- */
+:root{
+  /* الثيم الافتراضي: "Medical Blue" أزرق طبي هادئ وموثوق */
+  --color-primary:#0B6E99;
+  --color-primary-dark:#084F70;
+  --color-secondary:#12A594;
+  --color-accent:#12A594;
+  --color-accent-2:#5CC8B8;
+  --color-bg:#F6FAFB;
+  --color-bg-soft:#E7F3F5;
+  --color-text:#152933;
+  --color-text-muted:#5f7580;
+  --color-card:#FFFFFF;
+  --color-border:#dbe9ec;
+  --gradient-brand: linear-gradient(120deg, var(--color-primary), var(--color-secondary));
+  --shadow-soft: 0 10px 30px rgba(11,110,153,.10);
+  --shadow-hover: 0 20px 45px rgba(11,110,153,.16);
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --font-display:'Poppins','Tajawal', sans-serif;
+  --font-body:'Tajawal','Poppins', sans-serif;
+}
+
+/* ثيم "Care Green" أخضر طبي دافئ */
+[data-theme="green"]{
+  --color-primary:#0E8A5F;
+  --color-primary-dark:#08633F;
+  --color-secondary:#4CAF7D;
+  --color-accent:#F2A65A;
+  --color-accent-2:#F7C08A;
+  --color-bg:#F6FBF8;
+  --color-bg-soft:#E4F3EA;
+  --color-text:#12231a;
+  --color-text-muted:#5c7768;
+  --color-card:#FFFFFF;
+  --color-border:#d9ece1;
+}
+
+/* ثيم "Violet Care" بنفسجي طبي عصري */
+[data-theme="violet"]{
+  --color-primary:#5B3AA6;
+  --color-primary-dark:#402877;
+  --color-secondary:#8E6FD1;
+  --color-accent:#EF7FA6;
+  --color-accent-2:#F4A6C1;
+  --color-bg:#F8F6FC;
+  --color-bg-soft:#ECE7F7;
+  --color-text:#211a30;
+  --color-text-muted:#6c637f;
+  --color-card:#FFFFFF;
+  --color-border:#e0d9f0;
+}
+
+/* ثيم داكن */
+[data-theme="dark"]{
+  --color-primary:#3FB6C9;
+  --color-primary-dark:#2A94A5;
+  --color-secondary:#57D9C2;
+  --color-accent:#57D9C2;
+  --color-accent-2:#3FB6C9;
+  --color-bg:#0F1720;
+  --color-bg-soft:#182430;
+  --color-text:#EAF3F5;
+  --color-text-muted:#a3b4bc;
+  --color-card:#182430;
+  --color-border:#2b3a46;
+}
+
+/* ---------- 2. إعادة الضبط ---------- */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-body);
+  background:var(--color-bg);
+  color:var(--color-text);
+  line-height:1.75;
+  transition:background .4s ease,color .4s ease;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--color-text);}
+:focus-visible{outline:3px solid var(--color-accent);outline-offset:3px;}
+.container{width:min(1200px,92%);margin-inline:auto;}
+.section{padding:5.5rem 0;}
+.section-soft{background:var(--color-bg-soft);}
+
+/* ---------- 3. حركات ---------- */
+[data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
+[data-reveal].in-view{opacity:1;transform:translateY(0);}
+@keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+@keyframes pulseRing{0%{box-shadow:0 0 0 0 rgba(11,110,153,.35);}70%{box-shadow:0 0 0 16px rgba(11,110,153,0);}100%{box-shadow:0 0 0 0 rgba(11,110,153,0);}}
+@keyframes heartbeat{0%,100%{transform:scale(1);}25%{transform:scale(1.08);}50%{transform:scale(1);}75%{transform:scale(1.06);}}
+
+/* ---------- 4. شريط التنبيه العلوي (طوارئ) ---------- */
+.topbar{background:var(--color-primary-dark);color:#eaf7f8;font-size:.82rem;}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;flex-wrap:wrap;gap:.4rem;}
+.topbar-info{display:flex;gap:1.4rem;flex-wrap:wrap;}
+.topbar-info span{opacity:.92;}
+.emergency-tag{background:#D64550;color:#fff;padding:.2rem .7rem;border-radius:50px;font-weight:700;font-size:.75rem;}
+
+/* ---------- 5. شريط التنقل ---------- */
+.navbar{position:sticky;top:0;z-index:100;background:var(--color-bg);border-bottom:1px solid var(--color-border);box-shadow:var(--shadow-soft);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;gap:1rem;}
+.brand{display:flex;align-items:center;gap:.7rem;}
+.brand-mark{
+  width:48px;height:48px;border-radius:14px;background:var(--gradient-brand);
+  display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);
+  font-weight:800;font-size:1.3rem;box-shadow:var(--shadow-soft);
+}
+.brand-text{display:flex;flex-direction:column;line-height:1.1;}
+.brand-text strong{font-family:var(--font-display);font-size:1.2rem;}
+.brand-text small{color:var(--color-text-muted);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;}
+
+.nav-links{display:flex;gap:1.9rem;align-items:center;}
+.nav-links a{position:relative;font-weight:500;font-size:.95rem;color:var(--color-text);padding:.3rem 0;}
+.nav-links a::after{content:"";position:absolute;bottom:-4px;left:0;height:2px;width:0;background:var(--color-accent);transition:width .3s ease;}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.nav-links a.active{color:var(--color-primary);}
+
+.nav-tools{display:flex;align-items:center;gap:.55rem;}
+.tool-btn{border:1px solid var(--color-border);background:var(--color-card);color:var(--color-text);border-radius:50px;padding:.5rem .9rem;font-size:.82rem;display:flex;align-items:center;gap:.35rem;transition:.25s;}
+.tool-btn:hover{background:var(--color-primary);color:#fff;border-color:var(--color-primary);}
+
+.theme-dots{display:flex;gap:.4rem;align-items:center;padding-inline:.3rem;}
+.theme-dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--color-card);box-shadow:0 0 0 1px var(--color-border);cursor:pointer;transition:transform .2s;}
+.theme-dot:hover{transform:scale(1.15);}
+.theme-dot[data-t="medical"]{background:linear-gradient(135deg,#0B6E99,#12A594);}
+.theme-dot[data-t="green"]{background:linear-gradient(135deg,#0E8A5F,#F2A65A);}
+.theme-dot[data-t="violet"]{background:linear-gradient(135deg,#5B3AA6,#EF7FA6);}
+.theme-dot[data-t="dark"]{background:linear-gradient(135deg,#0F1720,#57D9C2);}
+
+.user-chip{display:none;align-items:center;gap:.5rem;background:var(--color-bg-soft);border-radius:50px;padding:.35rem .5rem .35rem 1rem;font-size:.85rem;font-weight:700;color:var(--color-primary);}
+html[dir="ltr"] .user-chip{padding:.35rem 1rem .35rem .5rem;}
+.user-chip .logout-btn{background:var(--color-primary);color:#fff;border:none;border-radius:50px;padding:.4rem .8rem;font-size:.78rem;font-weight:700;transition:.2s;}
+.user-chip .logout-btn:hover{background:var(--color-primary-dark);}
+
+.btn-primary{background:var(--gradient-brand);color:#fff !important;padding:.75rem 1.6rem;border-radius:50px;font-weight:700;box-shadow:var(--shadow-soft);border:none;transition:.3s;}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);}
+.btn-outline{border:2px solid var(--color-accent);color:var(--color-primary) !important;padding:.68rem 1.5rem;border-radius:50px;font-weight:700;background:transparent;transition:.25s;}
+.btn-outline:hover{background:var(--color-accent);color:#fff !important;}
+
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;}
+.burger span{width:26px;height:2px;background:var(--color-primary);}
+
+/* ---------- 6. الهيرو ---------- */
+.hero{position:relative;min-height:86vh;display:flex;align-items:center;overflow:hidden;
+  background:radial-gradient(circle at 12% 20%, var(--color-bg-soft), transparent 55%),
+             radial-gradient(circle at 88% 80%, var(--color-bg-soft), transparent 55%),
+             var(--color-bg);}
+.hero .container{display:grid;grid-template-columns:1.05fr .95fr;gap:2.5rem;align-items:center;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;color:var(--color-primary);letter-spacing:.14em;font-size:.8rem;text-transform:uppercase;margin-bottom:1.1rem;font-weight:700;}
+.hero-eyebrow::before{content:"✚";}
+.hero h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.28;margin-bottom:1.1rem;}
+.hero p{color:var(--color-text-muted);font-size:1.05rem;max-width:540px;margin-bottom:2rem;}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+.hero-media{position:relative;}
+.hero-media img{border-radius:var(--radius-lg);box-shadow:var(--shadow-hover);}
+.hero-badge-float{position:absolute;bottom:-18px;left:-18px;background:var(--color-card);border-radius:var(--radius-md);box-shadow:var(--shadow-hover);padding:1rem 1.3rem;display:flex;align-items:center;gap:.7rem;animation:floatY 4.5s ease-in-out infinite;}
+.hero-badge-float .ic{width:42px;height:42px;border-radius:50%;background:var(--gradient-brand);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;animation:heartbeat 2.4s ease-in-out infinite;}
+.hero-badge-float b{display:block;font-family:var(--font-display);color:var(--color-primary);}
+.hero-badge-float span{font-size:.78rem;color:var(--color-text-muted);}
+.hero-pulse-dot{position:absolute;top:14%;right:8%;width:16px;height:16px;border-radius:50%;background:var(--color-accent);animation:pulseRing 2.2s infinite;}
+
+/* ---------- 7. شريط الثقة ---------- */
+.trust-strip{display:flex;justify-content:space-around;flex-wrap:wrap;gap:1.4rem;padding:2rem 0;border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);}
+.trust-item{display:flex;align-items:center;gap:.6rem;font-size:.88rem;color:var(--color-text-muted);font-weight:600;}
+.trust-item .ic{font-size:1.3rem;}
+
+/* ---------- 8. عناوين الأقسام ---------- */
+.section-head{text-align:center;max-width:660px;margin:0 auto 3rem;}
+.section-head .eyebrow{color:var(--color-primary);text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:800;}
+.section-head h2{font-size:clamp(1.7rem,3.5vw,2.4rem);margin:.5rem 0 .8rem;}
+.section-head p{color:var(--color-text-muted);}
+
+/* ---------- 9. الأقسام الطبية (Departments) ---------- */
+.dept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.6rem;}
+.dept-card{background:var(--color-card);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:2rem 1.6rem;text-align:center;transition:.3s;}
+.dept-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover);border-color:var(--color-accent);}
+.dept-icon{width:60px;height:60px;border-radius:50%;background:var(--color-bg-soft);color:var(--color-primary);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.6rem;}
+.dept-card h3{font-size:1.08rem;margin-bottom:.5rem;}
+.dept-card p{color:var(--color-text-muted);font-size:.9rem;margin-bottom:.8rem;}
+.dept-card .dept-count{color:var(--color-primary);font-weight:700;font-size:.85rem;}
+
+/* ---------- 10. بطاقات الأطباء ---------- */
+.doctors-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.7rem;}
+.doctor-card{background:var(--color-card);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--color-border);transition:.3s;text-align:center;}
+.doctor-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-6px);}
+.doctor-img{height:230px;overflow:hidden;}
+.doctor-img img{width:100%;height:100%;object-fit:cover;transition:.5s;}
+.doctor-card:hover .doctor-img img{transform:scale(1.06);}
+.doctor-body{padding:1.3rem 1.2rem 1.6rem;}
+.doctor-body h3{font-size:1.08rem;margin-bottom:.2rem;}
+.doctor-spec{color:var(--color-primary);font-size:.85rem;font-weight:700;margin-bottom:.6rem;}
+.doctor-meta{display:flex;justify-content:center;gap:1rem;color:var(--color-text-muted);font-size:.82rem;margin-bottom:1rem;flex-wrap:wrap;}
+
+/* ---------- 11. بطاقات المميزات ---------- */
+.features-grid{margin-top:2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.6rem;}
+.feature-card{background:var(--color-card);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:2rem 1.6rem;text-align:center;transition:.3s;}
+.feature-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft);border-color:var(--color-accent);}
+.feature-icon{width:56px;height:56px;border-radius:50%;background:var(--color-bg-soft);color:var(--color-primary);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:1.4rem;}
+.feature-card h3{font-size:1.1rem;margin-bottom:.5rem;}
+.feature-card p{color:var(--color-text-muted);font-size:.92rem;}
+
+/* ---------- 12. جدول أوقات العمل ---------- */
+.table-wrap{overflow-x:auto;border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);}
+table{width:100%;border-collapse:collapse;background:var(--color-card);min-width:560px;}
+table th,table td{padding:1rem 1.2rem;text-align:start;border-bottom:1px solid var(--color-border);}
+table thead{background:var(--gradient-brand);color:#fff;}
+table tbody tr:hover{background:var(--color-bg-soft);}
+
+/* ---------- 13. الآراء ---------- */
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.6rem;}
+.testimonial-card{background:var(--color-card);border-radius:var(--radius-lg);padding:1.8rem;border:1px solid var(--color-border);position:relative;}
+.testimonial-card::before{content:"“";position:absolute;top:.4rem;left:1rem;font-family:var(--font-display);font-size:3.5rem;color:var(--color-bg-soft);line-height:1;z-index:0;}
+.testimonial-card p{position:relative;z-index:1;color:var(--color-text-muted);margin-bottom:1rem;}
+.testimonial-person{display:flex;align-items:center;gap:.7rem;}
+.avatar{width:44px;height:44px;border-radius:50%;background:var(--color-bg-soft);display:flex;align-items:center;justify-content:center;color:var(--color-primary);font-weight:700;}
+.stars{color:var(--color-accent);letter-spacing:2px;}
+
+/* ---------- 14. الأسئلة الشائعة ---------- */
+.faq-item{border-bottom:1px solid var(--color-border);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 0;cursor:pointer;font-weight:700;}
+.faq-q .plus{transition:.3s;color:var(--color-accent);font-size:1.3rem;}
+.faq-item.open .faq-q .plus{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--color-text-muted);}
+.faq-item.open .faq-a{max-height:320px;padding-bottom:1.2rem;}
+
+/* ---------- 15. النماذج (تسجيل الدخول / التواصل / الحجز) ---------- */
+.form-card{background:var(--color-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);padding:2.4rem;border:1px solid var(--color-border);}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+.form-grid .full{grid-column:1/-1;}
+.field{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.1rem;}
+.field label{font-weight:600;font-size:.9rem;color:var(--color-text);}
+.field label .req{color:var(--color-primary);}
+.field input,.field select,.field textarea{padding:.75rem .9rem;border:1.5px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-bg);color:var(--color-text);font-family:inherit;font-size:.95rem;transition:.2s;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--color-accent);background:var(--color-card);}
+.field small.hint{color:var(--color-text-muted);font-size:.78rem;}
+.field small.error{color:#b3261e;font-size:.8rem;display:none;}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-color:#b3261e;}
+.field.invalid small.error{display:block;}
+.checkbox-row{display:flex;align-items:center;gap:.5rem;font-size:.88rem;color:var(--color-text-muted);}
+.checkbox-row input{width:auto;}
+.radio-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.8rem;}
+.radio-card{border:1.5px solid var(--color-border);border-radius:var(--radius-md);padding:.9rem;text-align:center;cursor:pointer;transition:.2s;background:var(--color-bg);}
+.radio-card input{display:none;}
+.radio-card.selected{border-color:var(--color-primary);background:var(--color-bg-soft);}
+.radio-card .ic{font-size:1.4rem;display:block;margin-bottom:.4rem;}
+
+.auth-wrap{min-height:calc(100vh - 260px);display:flex;align-items:center;justify-content:center;padding:4rem 0;
+  background:radial-gradient(circle at 20% 20%, var(--color-bg-soft), transparent 45%),radial-gradient(circle at 80% 80%, var(--color-bg-soft), transparent 45%);}
+.auth-card{max-width:460px;width:100%;}
+.auth-tabs{display:flex;background:var(--color-bg-soft);border-radius:50px;padding:.3rem;margin-bottom:1.8rem;}
+.auth-tab{flex:1;text-align:center;padding:.65rem;border-radius:50px;font-weight:700;color:var(--color-text-muted);transition:.25s;}
+.auth-tab.active{background:var(--gradient-brand);color:#fff;}
+.auth-panel{display:none;}
+.auth-panel.active{display:block;animation:fadeIn .4s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.form-msg{border-radius:var(--radius-md);padding:.8rem 1rem;font-size:.9rem;margin-bottom:1rem;display:none;}
+.form-msg.show{display:block;}
+.form-msg.success{background:#e6f4ea;color:#1e6b34;border:1px solid #bfe3cb;}
+.form-msg.error{background:#fbe9e7;color:#8a2b22;border:1px solid #f2c4bd;}
+
+/* ---------- 16. خطوات الحجز ---------- */
+.steps{display:flex;justify-content:space-between;max-width:680px;margin:0 auto 3rem;position:relative;}
+.steps::before{content:"";position:absolute;top:19px;left:5%;right:5%;height:2px;background:var(--color-border);z-index:0;}
+.step{position:relative;z-index:1;text-align:center;flex:1;}
+.step-num{width:40px;height:40px;border-radius:50%;background:var(--color-card);border:2px solid var(--color-border);display:flex;align-items:center;justify-content:center;margin:0 auto .5rem;font-weight:700;color:var(--color-text-muted);transition:.3s;}
+.step.active .step-num{background:var(--gradient-brand);border-color:transparent;color:#fff;}
+.step span{font-size:.8rem;color:var(--color-text-muted);}
+.step.active span{color:var(--color-primary);font-weight:700;}
+
+.summary-box{background:var(--color-bg-soft);border-radius:var(--radius-md);padding:1.2rem 1.4rem;margin-top:1rem;}
+.summary-row{display:flex;justify-content:space-between;padding:.4rem 0;font-size:.92rem;border-bottom:1px dashed var(--color-border);}
+.summary-row:last-child{border:none;font-weight:700;color:var(--color-primary);font-size:1.05rem;}
+
+/* ---------- 17. التواصل ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:2.5rem;align-items:start;}
+.contact-info-card{background:var(--gradient-brand);color:#fff;border-radius:var(--radius-lg);padding:2.4rem;height:100%;}
+.contact-info-card h3{color:#fff;margin-bottom:1rem;}
+.contact-info-card p{color:#e5f6f4;font-size:.92rem;margin-bottom:2rem;}
+.contact-item{display:flex;gap:.8rem;margin-bottom:1.3rem;align-items:flex-start;}
+.contact-item .ic{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.18);flex:none;display:flex;align-items:center;justify-content:center;}
+.contact-item h4{color:#fff;font-size:.95rem;margin-bottom:.15rem;}
+.contact-item p{color:#e2f4f2;font-size:.85rem;margin:0;}
+.social-row{display:flex;gap:.7rem;margin-top:1.5rem;}
+.social-row a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;transition:.25s;}
+.social-row a:hover{background:var(--color-accent);}
+.map-frame{border-radius:var(--radius-lg);overflow:hidden;margin-top:2rem;border:1px solid var(--color-border);}
+
+/* ---------- 18. الفوتر ---------- */
+footer{background:var(--color-primary-dark);color:#dff1f2;padding:3.5rem 0 0;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:2rem;padding-bottom:2.5rem;}
+.footer-brand p{color:#b9d9db;font-size:.9rem;margin:1rem 0 1.2rem;}
+.footer-col h4{color:#fff;font-family:var(--font-display);margin-bottom:1rem;font-size:1.05rem;}
+.footer-col ul li{margin-bottom:.6rem;}
+.footer-col ul li a{color:#b9d9db;font-size:.9rem;transition:.2s;}
+.footer-col ul li a:hover{color:var(--color-accent);padding-inline-start:4px;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.14);padding:1.2rem 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;font-size:.82rem;color:#a9cbcd;}
+.footer-bottom a{color:#a9cbcd;}
+.footer-bottom a:hover{color:var(--color-accent);}
+
+/* ---------- 19. زر عائم ---------- */
+.scroll-top{position:fixed;bottom:26px;right:26px;width:46px;height:46px;border-radius:50%;background:var(--gradient-brand);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-soft);opacity:0;pointer-events:none;transition:.3s;z-index:90;border:none;font-size:1.2rem;}
+.scroll-top.show{opacity:1;pointer-events:auto;}
+
+/* ---------- 20. عام ---------- */
+.badge-soft{display:inline-block;background:var(--color-bg-soft);color:var(--color-primary);padding:.3rem .9rem;border-radius:50px;font-size:.78rem;font-weight:700;}
+.page-hero{background:var(--gradient-brand);color:#fff;padding:5rem 0 4rem;text-align:center;}
+.page-hero h1{color:#fff;font-size:clamp(1.9rem,4vw,2.7rem);}
+.page-hero p{color:#e5f6f4;max-width:600px;margin:.7rem auto 0;}
+.breadcrumb{color:#dff1f2;font-size:.85rem;margin-top:.8rem;}
+.breadcrumb a{color:#fff;font-weight:700;}
+
+/* ---------- 21. تجاوب الموبايل ---------- */
+@media (max-width:980px){
+  .hero .container{grid-template-columns:1fr;text-align:center;}
+  .hero-actions{justify-content:center;}
+  .hero p{margin-inline:auto;}
+}
+@media (max-width:900px){
+  .nav-links{position:fixed;inset-inline-start:0;top:0;height:100vh;width:min(80vw,320px);background:var(--color-card);
+    flex-direction:column;justify-content:flex-start;align-items:flex-start;padding:6rem 2rem;gap:1.6rem;
+    box-shadow:6px 0 24px rgba(0,0,0,.15);transform:translateX(-110%);transition:.35s;z-index:120;}
+  html[dir="rtl"] .nav-links{transform:translateX(110%);}
+  .nav-links.open{transform:translateX(0);}
+  .burger{display:flex;}
+  .form-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:560px){
+  .footer-grid{grid-template-columns:1fr;}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important;}
+}

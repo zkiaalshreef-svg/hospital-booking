@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تواصل معنا | مستشفى ميديكير</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-info">
+      <span class="emergency-tag" data-i18n="topbar_emergency">🚑 حالات الطوارئ: 997</span>
+      <span data-i18n="topbar_hours">🕒 استقبال المرضى على مدار الساعة</span>
+    </div>
+    <span data-i18n="topbar_track">📞 966112345678+</span>
+  </div>
+</div>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">✚</span>
+      <span class="brand-text"><strong>ميديكير</strong><small>MEDICARE HOSPITAL</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" data-i18n="nav_home">الرئيسية</a>
+      <a href="appointment.html" data-i18n="nav_appointment">حجز موعد</a>
+      <a href="contact.html" class="active" data-i18n="nav_contact">تواصل معنا</a>
+      <a href="login.html" id="navLoginLink" data-i18n="nav_login">تسجيل الدخول</a>
+    </nav>
+    <div class="nav-tools">
+      <div class="theme-dots" title="تغيير لون الموقع">
+        <span class="theme-dot" data-t="medical"></span>
+        <span class="theme-dot" data-t="green"></span>
+        <span class="theme-dot" data-t="violet"></span>
+        <span class="theme-dot" data-t="dark"></span>
+      </div>
+      <button class="tool-btn" id="langBtn">🌐 <span id="langBtnLabel">EN</span></button>
+      <div class="user-chip" id="navUserChip">
+        <span id="navUserName">👤</span>
+        <button class="logout-btn" id="navLogoutBtn" data-i18n="btn_logout">خروج</button>
+      </div>
+      <a href="appointment.html" class="btn-primary" data-i18n="hero_btn_book">احجز موعدك الآن</a>
+      <button class="burger" id="burger" aria-label="فتح القائمة"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <h1 data-i18n="contact_hero_title">نحن هنا لمساعدتك</h1>
+    <p data-i18n="contact_hero_desc">لأي استفسار طبي أو إداري، تواصل معنا وسيرد فريقنا خلال 24 ساعة.</p>
+    <div class="breadcrumb"><a href="index.html" data-i18n="page_home_crumb">الرئيسية</a> / <span data-i18n="nav_contact">تواصل معنا</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div class="contact-info-card">
+        <h3 data-i18n="contact_info_t">معلومات التواصل</h3>
+        <p data-i18n="contact_info_d">يسعدنا استقبال استفساراتكم عبر أي من الوسائل التالية، أو زيارتنا مباشرة.</p>
+
+        <div class="contact-item">
+          <div class="ic">📍</div>
+          <div><h4 data-i18n="ci_addr_t">العنوان</h4><p data-i18n="ci_addr_d">طريق الملك عبدالله، حي النزهة، الرياض</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="ic">📞</div>
+          <div><h4 data-i18n="ci_phone_t">الهاتف</h4><p data-i18n="ci_phone_d">966112345678+</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="ic">✉️</div>
+          <div><h4 data-i18n="ci_email_t">البريد الإلكتروني</h4><p data-i18n="ci_email_d">info@medicare-hospital.example.com</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="ic">🚑</div>
+          <div><h4 data-i18n="ci_hours_t">استقبال الطوارئ</h4><p data-i18n="ci_hours_d">على مدار الساعة، طوال أيام الأسبوع</p></div>
+        </div>
+
+        <div class="social-row">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="Twitter">🐦</a>
+          <a href="#" aria-label="WhatsApp">💬</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="form-card">
+          <h3 style="margin-bottom:1.4rem;" data-i18n="contact_form_t">أرسل لنا رسالة</h3>
+          <div id="contactMsg" class="form-msg"></div>
+          <form id="contactForm" novalidate>
+            <div class="form-grid">
+              <div class="field" data-field="full_name">
+                <label data-i18n="label_name">الاسم الكامل <span class="req">*</span></label>
+                <input type="text" name="full_name" required minlength="3">
+                <small class="error" data-i18n="err_required">هذا الحقل مطلوب</small>
+              </div>
+              <div class="field" data-field="phone">
+                <label data-i18n="label_phone">رقم الجوال</label>
+                <input type="tel" name="phone" placeholder="05xxxxxxxx">
+              </div>
+              <div class="field full" data-field="email">
+                <label data-i18n="label_email">البريد الإلكتروني <span class="req">*</span></label>
+                <input type="email" name="email" required>
+                <small class="error" data-i18n="err_email">يرجى إدخال بريد إلكتروني صحيح</small>
+              </div>
+              <div class="field full" data-field="subject">
+                <label data-i18n="label_subject">الموضوع <span class="req">*</span></label>
+                <input type="text" name="subject" required>
+                <small class="error" data-i18n="err_required">هذا الحقل مطلوب</small>
+              </div>
+              <div class="field full" data-field="message">
+                <label data-i18n="label_message">الرسالة <span class="req">*</span></label>
+                <textarea name="message" rows="5" required minlength="10"></textarea>
+                <small class="error" data-i18n="err_required">هذا الحقل مطلوب</small>
+              </div>
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%;" data-i18n="contact_form_send">إرسال الرسالة</button>
+          </form>
+        </div>
+
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps?q=Riyadh&output=embed" width="100%" height="260" style="border:0;" loading="lazy" title="خريطة موقع المستشفى"></iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom" style="border:none;padding:1.6rem 0;">
+      <span>© <span class="current-year">2026</span> Medicare Hospital — <span data-i18n="footer_rights">جميع الحقوق محفوظة</span>.</span>
+      <span><a href="#" data-i18n="footer_privacy">سياسة الخصوصية</a> · <a href="#" data-i18n="footer_terms">الشروط والأحكام</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/lang.js"></script>
+<script src="js/main.js"></script>
+<script src="js/contact.js"></script>
+</body>
+</html>

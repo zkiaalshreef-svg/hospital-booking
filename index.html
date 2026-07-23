@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مستشفى ميديكير | الرئيسية</title>
+<meta name="description" content="نظام حجز مواعيد إلكتروني لمستشفى ميديكير التخصصي - احجز موعدك أونلاين بسهولة">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-info">
+      <span class="emergency-tag" data-i18n="topbar_emergency">🚑 حالات الطوارئ: 997</span>
+      <span data-i18n="topbar_hours">🕒 استقبال المرضى على مدار الساعة</span>
+    </div>
+    <span data-i18n="topbar_track">📞 966112345678+</span>
+  </div>
+</div>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">✚</span>
+      <span class="brand-text"><strong>ميديكير</strong><small>MEDICARE HOSPITAL</small></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" data-i18n="nav_home">الرئيسية</a>
+      <a href="appointment.html" data-i18n="nav_appointment">حجز موعد</a>
+      <a href="contact.html" data-i18n="nav_contact">تواصل معنا</a>
+      <a href="login.html" id="navLoginLink" data-i18n="nav_login">تسجيل الدخول</a>
+    </nav>
+
+    <div class="nav-tools">
+      <div class="theme-dots" title="تغيير لون الموقع">
+        <span class="theme-dot" data-t="medical"></span>
+        <span class="theme-dot" data-t="green"></span>
+        <span class="theme-dot" data-t="violet"></span>
+        <span class="theme-dot" data-t="dark"></span>
+      </div>
+      <button class="tool-btn" id="langBtn" title="Change language / تغيير اللغة">🌐 <span id="langBtnLabel">EN</span></button>
+      <div class="user-chip" id="navUserChip">
+        <span id="navUserName">👤</span>
+        <button class="logout-btn" id="navLogoutBtn" data-i18n="btn_logout">خروج</button>
+      </div>
+      <a href="appointment.html" class="btn-primary" data-i18n="hero_btn_book">احجز موعدك الآن</a>
+      <button class="burger" id="burger" aria-label="فتح القائمة"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== الهيرو ===================== -->
+<section class="hero">
+  <div class="container">
+    <div>
+      <span class="hero-eyebrow" data-i18n="hero_eyebrow">مستشفى ميديكير التخصصي</span>
+      <h1 data-i18n="hero_title">رعاية صحية متكاملة تهتم بك أولًا</h1>
+      <p data-i18n="hero_desc">احجز موعدك مع أفضل الاستشاريين في مختلف التخصصات خلال دقائق، مع متابعة كاملة لحالتك من أول استشارة وحتى الشفاء التام.</p>
+      <div class="hero-actions">
+        <a href="appointment.html" class="btn-primary" data-i18n="hero_btn_book">احجز موعدك الآن</a>
+        <a href="#departments" class="btn-outline" data-i18n="hero_btn_depts">تصفح الأقسام</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <span class="hero-pulse-dot"></span>
+      <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=900&auto=format&fit=crop" alt="فريق طبي في مستشفى ميديكير">
+      <div class="hero-badge-float">
+        <div class="ic">✚</div>
+        <div><b data-i18n="hero_badge_title">+35,000 مريض</b><span data-i18n="hero_badge_sub">تمت رعايتهم بنجاح</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="trust-strip">
+    <div class="trust-item"><span class="ic">👨‍⚕️</span> <span data-i18n="trust1">أطباء استشاريون معتمدون</span></div>
+    <div class="trust-item"><span class="ic">🏥</span> <span data-i18n="trust2">أجهزة طبية حديثة</span></div>
+    <div class="trust-item"><span class="ic">💻</span> <span data-i18n="trust3">حجز إلكتروني سريع</span></div>
+    <div class="trust-item"><span class="ic">☎️</span> <span data-i18n="trust4">دعم على مدار الساعة</span></div>
+  </div>
+</div>
+
+<!-- ===================== الأقسام الطبية ===================== -->
+<section class="section" id="departments">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-i18n="dept_eyebrow">أقسامنا الطبية</span>
+      <h2 data-i18n="dept_title">تخصصات طبية شاملة تحت سقف واحد</h2>
+      <p data-i18n="dept_desc">فريق طبي متكامل من الاستشاريين في مختلف التخصصات لخدمة جميع أفراد الأسرة.</p>
+    </div>
+    <div class="dept-grid">
+      <div class="dept-card" data-reveal>
+        <div class="dept-icon">❤️</div>
+        <h3 data-i18n="dept1_t">طب القلب</h3>
+        <p data-i18n="dept1_d">تشخيص وعلاج أمراض القلب والشرايين بأحدث الأجهزة.</p>
+        <span class="dept-count" data-i18n="dept1_c">6 استشاريين</span>
+      </div>
+      <div class="dept-card" data-reveal>
+        <div class="dept-icon">🧒</div>
+        <h3 data-i18n="dept2_t">طب الأطفال</h3>
+        <p data-i18n="dept2_d">رعاية صحية شاملة للأطفال من الولادة وحتى سن المراهقة.</p>
+        <span class="dept-count" data-i18n="dept2_c">8 استشاريين</span>
+      </div>
+      <div class="dept-card" data-reveal>
+        <div class="dept-icon">🦴</div>
+        <h3 data-i18n="dept3_t">العظام والمفاصل</h3>
+        <p data-i18n="dept3_d">علاج إصابات وأمراض العظام والمفاصل والعمود الفقري.</p>
+        <span class="dept-count" data-i18n="dept3_c">5 استشاريين</span>
+      </div>
+      <div class="dept-card" data-reveal>
+        <div class="dept-icon">✨</div>
+        <h3 data-i18n="dept4_t">الجلدية والتجميل</h3>
+        <p data-i18n="dept4_d">تشخيص وعلاج أمراض الجلد وخدمات التجميل الطبي.</p>
+        <span class="dept-count" data-i18n="dept4_c">4 استشاريين</span>
+      </div>
+      <div class="dept-card" data-reveal>
+        <div class="dept-icon">🦷</div>
+        <h3 data-i18n="dept5_t">طب الأسنان</h3>
+        <p data-i18n="dept5_d">رعاية شاملة لصحة الفم والأسنان لكل الأعمار.</p>
+        <span class="dept-count" data-i18n="dept5_c">7 استشاريين</span>
+      </div>
+      <div class="dept-card" data-reveal>
+        <div class="dept-icon">🧠</div>
+        <h3 data-i18n="dept6_t">المخ والأعصاب</h3>
+        <p data-i18n="dept6_d">تشخيص وعلاج اضطرابات الجهاز العصبي والدماغ.</p>
+        <span class="dept-count" data-i18n="dept6_c">4 استشاريين</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== الأطباء ===================== -->
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-i18n="doctors_eyebrow">نخبة أطبائنا</span>
+      <h2 data-i18n="doctors_title">استشاريون بخبرات عالمية</h2>
+    </div>
+    <div class="doctors-grid">
+      <div class="doctor-card" data-reveal>
+        <div class="doctor-img"><img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=500&auto=format&fit=crop" alt="د. سلمى الأحمدي"></div>
+        <div class="doctor-body">
+          <h3 data-i18n="doc1_name">د. سلمى الأحمدي</h3>
+          <div class="doctor-spec" data-i18n="doc1_spec">استشارية أمراض القلب</div>
+          <div class="doctor-meta"><span>14 <span data-i18n="doc_exp">سنة خبرة</span></span><span>⭐ 4.9</span></div>
+          <a href="appointment.html" class="btn-outline btn-sm" data-i18n="doc_book_btn">احجز موعدًا</a>
+        </div>
+      </div>
+      <div class="doctor-card" data-reveal>
+        <div class="doctor-img"><img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=500&auto=format&fit=crop" alt="د. خالد المطيري"></div>
+        <div class="doctor-body">
+          <h3 data-i18n="doc2_name">د. خالد المطيري</h3>
+          <div class="doctor-spec" data-i18n="doc2_spec">استشاري جراحة العظام</div>
+          <div class="doctor-meta"><span>16 <span data-i18n="doc_exp">سنة خبرة</span></span><span>⭐ 4.9</span></div>
+          <a href="appointment.html" class="btn-outline btn-sm" data-i18n="doc_book_btn">احجز موعدًا</a>
+        </div>
+      </div>
+      <div class="doctor-card" data-reveal>
+        <div class="doctor-img"><img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=500&auto=format&fit=crop" alt="د. هدى النعيمي"></div>
+        <div class="doctor-body">
+          <h3 data-i18n="doc3_name">د. هدى النعيمي</h3>
+          <div class="doctor-spec" data-i18n="doc3_spec">استشارية طب الأطفال</div>
+          <div class="doctor-meta"><span>12 <span data-i18n="doc_exp">سنة خبرة</span></span><span>⭐ 4.9</span></div>
+          <a href="appointment.html" class="btn-outline btn-sm" data-i18n="doc_book_btn">احجز موعدًا</a>
+        </div>
+      </div>
+      <div class="doctor-card" data-reveal>
+        <div class="doctor-img"><img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=500&auto=format&fit=crop" alt="د. عمر الشهري"></div>
+        <div class="doctor-body">
+          <h3 data-i18n="doc4_name">د. عمر الشهري</h3>
+          <div class="doctor-spec" data-i18n="doc4_spec">استشاري المخ والأعصاب</div>
+          <div class="doctor-meta"><span>15 <span data-i18n="doc_exp">سنة خبرة</span></span><span>⭐ 4.9</span></div>
+          <a href="appointment.html" class="btn-outline btn-sm" data-i18n="doc_book_btn">احجز موعدًا</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== المميزات ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-i18n="feat_eyebrow">لماذا تختارنا</span>
+      <h2 data-i18n="feat_title">تجربة رعاية صحية متكاملة</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card" data-reveal><div class="feature-icon">💻</div><h3 data-i18n="feat1_t">حجز إلكتروني فوري</h3><p data-i18n="feat1_d">احجز موعدك أونلاين واختر الطبيب والوقت المناسب لك خلال دقائق.</p></div>
+      <div class="feature-card" data-reveal><div class="feature-icon">📋</div><h3 data-i18n="feat2_t">سجل طبي إلكتروني</h3><p data-i18n="feat2_d">تابعي سجلك الطبي وتاريخ زياراتك بسهولة من خلال حسابك.</p></div>
+      <div class="feature-card" data-reveal><div class="feature-icon">🔔</div><h3 data-i18n="feat3_t">تذكير تلقائي بالموعد</h3><p data-i18n="feat3_d">إشعارات تذكيرية بموعدك حتى لا تفوتك أي زيارة مهمة.</p></div>
+      <div class="feature-card" data-reveal><div class="feature-icon">👩‍⚕️</div><h3 data-i18n="feat4_t">فريق تمريض متخصص</h3><p data-i18n="feat4_d">طاقم تمريض مؤهل لرعايتك على مدار ساعات العمل كافة.</p></div>
+      <div class="feature-card" data-reveal><div class="feature-icon">💊</div><h3 data-i18n="feat5_t">صيدلية داخلية</h3><p data-i18n="feat5_d">صيدلية متكاملة داخل المستشفى لصرف الأدوية فور الاستشارة.</p></div>
+      <div class="feature-card" data-reveal><div class="feature-icon">🛡️</div><h3 data-i18n="feat6_t">قبول التأمين الصحي</h3><p data-i18n="feat6_d">نتعامل مع معظم شركات التأمين الصحي المحلية لراحتكم.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== مواعيد العمل ===================== -->
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-head" data-reveal><h2 data-i18n="hours_title">مواعيد العمل والاستقبال</h2></div>
+    <div class="table-wrap" data-reveal>
+      <table>
+        <thead><tr><th data-i18n="th_day">اليوم</th><th data-i18n="th_hours">أوقات الدوام</th><th data-i18n="th_emergency">الطوارئ</th></tr></thead>
+        <tbody>
+          <tr><td data-i18n="day_sat_wed">السبت - الأربعاء</td><td data-i18n="hours_main">8:00 صباحًا - 10:00 مساءً</td><td data-i18n="emergency_always">على مدار الساعة</td></tr>
+          <tr><td data-i18n="day_thu">الخميس</td><td data-i18n="hours_thu">9:00 صباحًا - 6:00 مساءً</td><td data-i18n="emergency_always">على مدار الساعة</td></tr>
+          <tr><td data-i18n="day_fri">الجمعة</td><td data-i18n="hours_fri">4:00 عصرًا - 10:00 مساءً</td><td data-i18n="emergency_always">على مدار الساعة</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== آراء المرضى ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-i18n="test_eyebrow">آراء مرضانا</span>
+      <h2 data-i18n="test_title">ثقتكم أمانة نحملها</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card" data-reveal>
+        <p data-i18n="test1">تعامل راقٍ من الاستقبال وحتى الطبيب، والحجز الإلكتروني وفّر عليّ وقت الانتظار الطويل.</p>
+        <div class="testimonial-person"><div class="avatar">أ.س</div><div><strong data-i18n="test1_name">أمل السبيعي</strong><div class="stars">★★★★★</div></div></div>
+      </div>
+      <div class="testimonial-card" data-reveal>
+        <p data-i18n="test2">الدكتور شرح حالتي بالتفصيل واطمأننت، والمتابعة بعد العملية كانت ممتازة جدًا.</p>
+        <div class="testimonial-person"><div class="avatar">م.ق</div><div><strong data-i18n="test2_name">ماجد القحطاني</strong><div class="stars">★★★★★</div></div></div>
+      </div>
+      <div class="testimonial-card" data-reveal>
+        <p data-i18n="test3">نظام التذكير بالمواعيد رائع، ما نسيت موعد ولا مرة من وقت ما صرت أستخدم الحجز الإلكتروني.</p>
+        <div class="testimonial-person"><div class="avatar">ه.ع</div><div><strong data-i18n="test3_name">هند العتيبي</strong><div class="stars">★★★★★</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== الأسئلة الشائعة ===================== -->
+<section class="section section-soft">
+  <div class="container" style="max-width:820px;">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-i18n="faq_eyebrow">الأسئلة الشائعة</span>
+      <h2 data-i18n="faq_title">كل ما تحتاج معرفته عن الحجز</h2>
+    </div>
+    <div class="faq-list" data-reveal>
+      <div class="faq-item open">
+        <div class="faq-q"><span data-i18n="faq1_q">كيف أحجز موعدًا؟</span><span class="plus">+</span></div>
+        <div class="faq-a" data-i18n="faq1_a">يمكنك حجز موعدك مباشرة من صفحة «حجز موعد» باختيار القسم والطبيب والتاريخ المناسب، وسيصلك تأكيد خلال ساعات.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span data-i18n="faq2_q">هل يمكن إلغاء أو تعديل الموعد؟</span><span class="plus">+</span></div>
+        <div class="faq-a" data-i18n="faq2_a">نعم، يمكن إلغاء أو تعديل الموعد مجانًا حتى 24 ساعة قبل الموعد المحدد عبر التواصل معنا.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span data-i18n="faq3_q">هل تقبلون التأمين الصحي؟</span><span class="plus">+</span></div>
+        <div class="faq-a" data-i18n="faq3_a">نتعامل مع معظم شركات التأمين الصحي الكبرى، يُرجى إحضار بطاقة التأمين عند الحضور للتحقق من التغطية.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span data-i18n="faq4_q">ماذا لو تأخرت عن الموعد؟</span><span class="plus">+</span></div>
+        <div class="faq-a" data-i18n="faq4_a">يُرجى الحضور قبل 15 دقيقة من الموعد؛ التأخر أكثر من 20 دقيقة قد يستدعي إعادة جدولة الموعد حسب الزحام.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span data-i18n="faq5_q">هل يوجد قسم طوارئ على مدار الساعة؟</span><span class="plus">+</span></div>
+        <div class="faq-a" data-i18n="faq5_a">نعم، قسم الطوارئ يعمل على مدار الساعة طوال أيام الأسبوع لاستقبال الحالات العاجلة دون الحاجة لحجز مسبق.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== الفوتر ===================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <span class="brand-mark">✚</span>
+          <span class="brand-text" style="color:#fff;"><strong style="color:#fff;">ميديكير</strong><small style="color:#b9d9db;">MEDICARE HOSPITAL</small></span>
+        </div>
+        <p data-i18n="footer_about_d">مستشفى ميديكير التخصصي يقدم رعاية صحية متكاملة بأعلى معايير الجودة العالمية، بفريق طبي متخصص وأحدث الأجهزة الطبية منذ عام 2010.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="Twitter">🐦</a>
+          <a href="#" aria-label="WhatsApp">💬</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_links_t">روابط سريعة</h4>
+        <ul>
+          <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+          <li><a href="appointment.html" data-i18n="nav_appointment">حجز موعد</a></li>
+          <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+          <li><a href="login.html" data-i18n="nav_login">تسجيل الدخول</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_depts_t">أقسامنا</h4>
+        <ul>
+          <li><a href="#departments" data-i18n="dept1_t">طب القلب</a></li>
+          <li><a href="#departments" data-i18n="dept2_t">طب الأطفال</a></li>
+          <li><a href="#departments" data-i18n="dept3_t">العظام والمفاصل</a></li>
+          <li><a href="#departments" data-i18n="dept5_t">طب الأسنان</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_contact_t">تواصل معنا</h4>
+        <ul>
+          <li><span data-i18n="ci_addr_d">طريق الملك عبدالله، حي النزهة، الرياض</span></li>
+          <li><span data-i18n="topbar_track">📞 966112345678+</span></li>
+          <li><span>✉️ info@medicare-hospital.example.com</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="current-year">2026</span> Medicare Hospital — <span data-i18n="footer_rights">جميع الحقوق محفوظة</span>.</span>
+      <span><a href="#" data-i18n="footer_privacy">سياسة الخصوصية</a> · <a href="#" data-i18n="footer_terms">الشروط والأحكام</a> · <span data-i18n="footer_made">تصميم وتطوير فريق التقنية</span></span>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" aria-label="العودة للأعلى">↑</button>
+
+<script src="js/lang.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
